@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>No-Lag — Roblox Script</title>
+    <meta
+      name="description"
+      content="A lightweight Roblox script built for automation, performance, and multiple game support."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #000000;
+        --bg-raised: #0c0c0d;
+        --bg-raised-2: #131315;
+        --line: rgba(255, 255, 255, 0.1);
+        --line-soft: rgba(255, 255, 255, 0.06);
+        --text: #f5f5f5;
+        --text-dim: #98989c;
+        --text-faint: #626266;
+
+        /* swatch palette, matched to Rechroma's own on-page colors */
+        --c1: #ce5623; /* clay */
+        --c2: #6391f6; /* blue */
+        --c3: #767cbf; /* violet */
+        --c4: #44caca; /* teal */
+        --c5: #c9e0ff; /* pale blue */
+        --c6: #fcfcfc; /* white */
+
+        --font-display: "Space Grotesk", "Inter", sans-serif;
+        --font-body: "Inter", sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+        line-height: 1.5;
+        overflow-x: hidden;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--text);
+        outline-offset: 3px;
+      }
+
+      main,
+      header,
+      footer {
+        position: relative;
+        z-index: 1;
+      }
+
+      .wrap {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* ---------- Header ---------- */
+
+      .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 22px 32px 0;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        font-family: var(--font-display);
+        font-weight: 600;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+        min-width: 0;
+      }
+
+      .brand-mark {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+        display: block;
+        object-fit: contain;
+      }
+
+      .header-link {
+        text-decoration: none;
+        font-size: 13.5px;
+        color: var(--text);
+        border: 1px solid var(--line);
+        padding: 9px 16px;
+        border-radius: 999px;
+        transition: border-color 0.15s ease, background 0.15s ease;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+      .header-link:hover {
+        border-color: rgba(255, 255, 255, 0.35);
+        background: var(--line-soft);
+      }
+
+      /* ---------- Buttons (Rechroma style: solid white / ghost outline) ---------- */
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+        background: #ffffff;
+        color: #000000;
+        font-weight: 600;
+        font-size: 14.5px;
+        padding: 13px 22px;
+        border-radius: 999px;
+        border: 1px solid #ffffff;
+        transition: opacity 0.15s ease, transform 0.15s ease;
+      }
+
+      .btn-primary:hover {
+        opacity: 0.85;
+      }
+
+      .btn-primary:active {
+        transform: translateY(1px);
+      }
+
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        text-decoration: none;
+        background: transparent;
+        color: var(--text);
+        font-weight: 500;
+        font-size: 14px;
+        padding: 12px 20px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        transition: border-color 0.15s ease, background 0.15s ease;
+      }
+
+      .btn-ghost:hover {
+        border-color: rgba(255, 255, 255, 0.35);
+        background: var(--line-soft);
+      }
+
+      /* ---------- Hero ---------- */
+
+      .hero {
+        padding: 64px 0 36px;
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 11.5px;
+        text-transform: uppercase;
+        letter-spacing: 0.14em;
+        color: var(--text-faint);
+        margin: 0 0 16px;
+      }
+
+      .hero h1 {
+        font-family: var(--font-display);
+        font-size: clamp(36px, 6vw, 64px);
+        line-height: 0.98;
+        letter-spacing: -0.03em;
+        margin: 0 0 18px;
+      }
+
+      .hero h1 span {
+        color: var(--text-dim);
+      }
+
+      .hero-sub {
+        color: var(--text-dim);
+        font-size: 16px;
+        max-width: 46ch;
+        margin: 0 0 30px;
+      }
+
+      .script-snippet {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--bg-raised);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 13px 13px 13px 15px;
+        margin-bottom: 20px;
+      }
+
+      .script-label {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-faint);
+        flex-shrink: 0;
+      }
+
+      #loader-code {
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        color: var(--text);
+        overflow-x: auto;
+        white-space: nowrap;
+        flex: 1;
+        min-width: 0;
+        scrollbar-width: none;
+      }
+
+      #loader-code::-webkit-scrollbar {
+        display: none;
+      }
+
+      .copy-button {
+        flex-shrink: 0;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        background: var(--bg-raised-2);
+        color: var(--text);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 8px 12px;
+        cursor: pointer;
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+
+      .copy-button:hover {
+        background: #1a1a1c;
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .hero-note {
+        font-size: 12.5px;
+        color: var(--text-faint);
+        font-family: var(--font-mono);
+      }
+
+      /* ---------- Hero panel: frame chart ---------- */
+
+      .hero-panel {
+        background: var(--bg-raised);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 22px;
+        min-width: 0;
+      }
+
+      .panel-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 4px;
+        gap: 10px;
+      }
+
+      .panel-title {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-faint);
+      }
+
+      .panel-live {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--c4);
+        flex-shrink: 0;
+      }
+
+      .panel-live::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--c4);
+        box-shadow: 0 0 0 0 rgba(68, 202, 202, 0.6);
+        animation: pulse 1.8s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(68, 202, 202, 0.5);
+        }
+        70% {
+          box-shadow: 0 0 0 7px rgba(68, 202, 202, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(68, 202, 202, 0);
+        }
+      }
+
+      .logo-stage {
+        display: grid;
+        place-items: center;
+        padding: 18px 0 22px;
+      }
+
+      .logo-stage img {
+        width: 100%;
+        max-width: 210px;
+        height: auto;
+        display: block;
+      }
+
+      .frame-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .stat-block {
+        border-top: 1px solid var(--line);
+        padding-top: 10px;
+        min-width: 0;
+      }
+
+      .stat-value {
+        font-family: var(--font-mono);
+        font-size: 19px;
+        font-weight: 500;
+        color: var(--text);
+      }
+
+      .stat-value.accent {
+        color: var(--c4);
+      }
+
+      .stat-label {
+        font-size: 11px;
+        color: var(--text-faint);
+        margin-top: 3px;
+      }
+
+      /* ---------- Section shared ---------- */
+
+      .section {
+        padding: 58px 0;
+        border-top: 1px solid var(--line-soft);
+      }
+
+      .section-heading {
+        margin-bottom: 36px;
+        max-width: 60ch;
+      }
+
+      .section-heading h2 {
+        font-family: var(--font-display);
+        font-size: clamp(24px, 3.2vw, 34px);
+        letter-spacing: -0.02em;
+        margin: 10px 0 0;
+      }
+
+      /* ---------- Feature grid ---------- */
+
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .feature-card {
+        background: var(--bg-raised);
+        padding: 24px 20px;
+      }
+
+      .feature-index {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        margin-bottom: 30px;
+        display: block;
+      }
+
+      .feature-card:nth-child(1) .feature-index {
+        color: var(--c1);
+      }
+      .feature-card:nth-child(2) .feature-index {
+        color: var(--c2);
+      }
+      .feature-card:nth-child(3) .feature-index {
+        color: var(--c4);
+      }
+      .feature-card:nth-child(4) .feature-index {
+        color: var(--c3);
+      }
+
+      .feature-card h3 {
+        font-family: var(--font-display);
+        font-size: 16.5px;
+        margin: 0 0 8px;
+        letter-spacing: -0.01em;
+      }
+
+      .feature-card p {
+        font-size: 13.5px;
+        color: var(--text-dim);
+        margin: 0;
+      }
+
+      /* ---------- Games list ---------- */
+
+      .games-list {
+        border-top: 1px solid var(--line-soft);
+      }
+
+      .game-row {
+        display: grid;
+        grid-template-columns: 40px 1fr auto auto;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 4px;
+        border-bottom: 1px solid var(--line-soft);
+      }
+
+      .game-index {
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        color: var(--text-faint);
+      }
+
+      .game-name {
+        font-family: var(--font-display);
+        font-size: 16px;
+        letter-spacing: -0.01em;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .game-tag {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-dim);
+        border: 1px solid var(--line);
+        padding: 4px 10px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+
+      .game-status {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        justify-self: end;
+        flex-shrink: 0;
+      }
+
+      /* ---------- Info split ---------- */
+
+      .info-section {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 44px;
+        align-items: center;
+        padding: 58px 0;
+        border-top: 1px solid var(--line-soft);
+      }
+
+      .info-copy h2 {
+        font-family: var(--font-display);
+        font-size: clamp(24px, 3.2vw, 32px);
+        letter-spacing: -0.02em;
+        margin: 10px 0 16px;
+      }
+
+      .info-copy p {
+        color: var(--text-dim);
+        font-size: 15px;
+        max-width: 52ch;
+        margin: 0 0 26px;
+      }
+
+      .console-card {
+        background: var(--bg-raised);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 20px;
+        font-family: var(--font-mono);
+        font-size: 12.5px;
+        color: var(--text-dim);
+        min-width: 0;
+        overflow-x: auto;
+      }
+
+      .console-card .line {
+        display: flex;
+        gap: 10px;
+        padding: 5px 0;
+        white-space: nowrap;
+      }
+
+      .console-card .ok {
+        color: var(--c4);
+      }
+
+      .console-card .dim {
+        color: var(--text-faint);
+      }
+
+      /* ---------- Footer ---------- */
+
+      footer {
+        border-top: 1px solid var(--line-soft);
+        padding: 30px 0 36px;
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 20px;
+        font-size: 13px;
+        color: var(--text-dim);
+      }
+
+      .footer-links a {
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        color: var(--text);
+      }
+
+      .footer-copy {
+        font-size: 12.5px;
+        color: var(--text-faint);
+        font-family: var(--font-mono);
+      }
+
+      /* ---------- Responsive ---------- */
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 44px;
+          gap: 34px;
+        }
+
+        .hero-panel {
+          order: -1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .wrap,
+        .site-header {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+
+        .site-header {
+          padding-top: 18px;
+        }
+
+        .feature-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .info-section {
+          grid-template-columns: 1fr;
+          padding: 44px 0;
+          gap: 28px;
+        }
+
+        .section {
+          padding: 44px 0;
+        }
+
+        .game-row {
+          grid-template-columns: 26px 1fr auto;
+        }
+
+        .game-tag {
+          display: none;
+        }
+
+        .frame-stats {
+          gap: 8px;
+        }
+
+        .stat-value {
+          font-size: 17px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .wrap,
+        .site-header {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+
+        .brand span:last-child {
+          display: none;
+        }
+
+        .header-link {
+          padding: 8px 14px;
+          font-size: 13px;
+        }
+
+        .hero {
+          padding-top: 34px;
+        }
+
+        .hero-sub {
+          font-size: 15px;
+        }
+
+        .script-snippet {
+          flex-wrap: wrap;
+        }
+
+        #loader-code {
+          flex-basis: 100%;
+          order: 3;
+          font-size: 11.5px;
+        }
+
+        .hero-actions {
+          width: 100%;
+        }
+
+        .btn-primary {
+          width: 100%;
+        }
+
+        .hero-note {
+          width: 100%;
+        }
+
+        .feature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .frame-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .frame-stats .stat-block:last-child {
+          grid-column: span 2;
+        }
+
+        .info-copy .btn-ghost {
+          width: 100%;
+        }
+
+        .footer-row {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        .panel-live::before {
+          animation: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">
+        <img class="brand-mark" src="NoLag-icon.png" alt="" width="28" height="28" />
+        <span>No-Lag</span>
+      </a>
+      <a class="header-link" href="https://discord.gg/Ndzk9kPZmT">Discord ↗</a>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-content">
+            <p class="eyebrow">Roblox script hub</p>
+            <h1 id="hero-title">Play without<br /><span>the stutter.</span></h1>
+            <p class="hero-sub">
+              No-Lag strips out the overhead between your input and the
+              game, so automation runs the same on frame one as it does
+              on frame ten thousand.
+            </p>
+
+            <div class="script-snippet" aria-label="Script loader">
+              <span class="script-label">Script</span>
+              <code id="loader-code">loadstring(game:HttpGet("https://nolag.wtf/script.lua"))()</code>
+              <button class="copy-button" type="button" data-copy-target="loader-code">
+                Copy
+              </button>
+            </div>
+
+            <div class="hero-actions">
+              <a class="btn-primary" href="https://discord.gg/Ndzk9kPZmT">
+                Join the Discord
+              </a>
+              <span class="hero-note">free · updated daily</span>
+            </div>
+          </div>
+
+          <div class="hero-panel" aria-label="No-Lag logo">
+            <div class="panel-head">
+              <span class="panel-title">No-Lag</span>
+              <span class="panel-live">online</span>
+            </div>
+
+            <div class="logo-stage">
+              <img src="NoLag.png" alt="No-Lag logo, a pixel-dithered moth mark above the wordmark" />
+            </div>
+
+            <div class="frame-stats">
+              <div class="stat-block">
+                <div class="stat-value accent">0.4ms</div>
+                <div class="stat-label">avg overhead</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat-value">2</div>
+                <div class="stat-label">games supported</div>
+              </div>
+              <div class="stat-block">
+                <div class="stat-value">0</div>
+                <div class="stat-label">dropped frames</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="wrap">
+        <section class="section" aria-labelledby="features-title">
+          <div class="section-heading">
+            <p class="eyebrow">Features</p>
+            <h2 id="features-title">Built for the loop, not the demo</h2>
+          </div>
+          <div class="feature-grid">
+            <article class="feature-card">
+              <span class="feature-index">01</span>
+              <h3>Automation tools</h3>
+              <p>
+                Cuts out repetitive actions so you can stay on strategy
+                instead of the grind.
+              </p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-index">02</span>
+              <h3>Performance-focused</h3>
+              <p>
+                A loader with near-zero overhead, so nothing sits between
+                you and the game.
+              </p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-index">03</span>
+              <h3>Multi-game support</h3>
+              <p>
+                One script hub, several supported Roblox experiences,
+                kept in sync.
+              </p>
+            </article>
+            <article class="feature-card">
+              <span class="feature-index">04</span>
+              <h3>Easy setup</h3>
+              <p>
+                Copy one line, join the Discord, get updates the moment
+                they ship.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" aria-labelledby="games-title">
+          <div class="section-heading">
+            <p class="eyebrow">Coverage</p>
+            <h2 id="games-title">Supported right now</h2>
+          </div>
+          <div class="games-list">
+            <div class="game-row">
+              <span class="game-index">01</span>
+              <span class="game-name">Grow A Garden 2</span>
+              <span class="game-tag">Keyless</span>
+              <span class="game-status" style="background:#00ff37" aria-label="online"></span>
+            </div>
+            <div class="game-row">
+              <span class="game-index">02</span>
+              <span class="game-name">Coming Soon</span>
+              <span class="game-tag">free</span>
+              <span class="game-status" style="background:#6391f6"></span>
+            </div>
+          </div>
+        </section>
+
+        <section class="info-section" aria-labelledby="info-title">
+          <div class="info-copy">
+            <p class="eyebrow">Information</p>
+            <h2 id="info-title">Automation that stays smooth</h2>
+            <p>
+              No-Lag is built to automate repetitive Roblox tasks and
+              improve gameplay efficiency across supported games, with a
+              lightweight approach that keeps things fast on desktop and
+              mobile web alike.
+            </p>
+            <a class="btn-ghost" href="https://discord.gg/Ndzk9kPZmT">
+              Get updates on Discord
+            </a>
+          </div>
+          <div class="console-card" aria-hidden="true">
+            <div class="line"><span class="dim">$</span> loadstring(...)</div>
+            <div class="line"><span class="ok">✓</span> connected to No-Lag</div>
+            <div class="line"><span class="ok">✓</span> game detected: supported</div>
+            <div class="line"><span class="ok">✓</span> overhead: 0.4ms</div>
+            <div class="line"><span class="dim">ready.</span></div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap footer-row">
+        <a class="brand" href="/">
+          <img class="brand-mark" src="NoLag-icon.png" alt="" width="28" height="28" />
+          <span>No-Lag</span>
+        </a>
+        <div class="footer-links">
+          <a href="https://discord.gg/Ndzk9kPZmT">Discord</a>
+        </div>
+        <span class="footer-copy">no-lag script hub</span>
+      </div>
+    </footer>
+
+    <script>
+      const copyButton = document.querySelector("[data-copy-target]");
+
+      copyButton?.addEventListener("click", async () => {
+        const targetId = copyButton.getAttribute("data-copy-target");
+        const target = document.getElementById(targetId);
+        const text = target?.textContent || "";
+
+        try {
+          await navigator.clipboard.writeText(text);
+          copyButton.textContent = "Copied";
+          setTimeout(() => {
+            copyButton.textContent = "Copy";
+          }, 1400);
+        } catch {
+          copyButton.textContent = "Failed";
+          setTimeout(() => {
+            copyButton.textContent = "Copy";
+          }, 1400);
+        }
+      });
+    </script>
+  </body>
+</html>
