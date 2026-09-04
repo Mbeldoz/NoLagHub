@@ -1,914 +1,1573 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>No-Lag — Free Roblox Script</title>
-    <meta
-      name="description"
-      content="A lightweight Roblox script built for automation, performance, and multiple game support."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --bg: #000000;
-        --bg-raised: #0c0c0d;
-        --bg-raised-2: #131315;
-        --line: rgba(255, 255, 255, 0.1);
-        --line-soft: rgba(255, 255, 255, 0.06);
-        --text: #f5f5f5;
-        --text-dim: #98989c;
-        --text-faint: #626266;
 
-        /* swatch palette, matched to Rechroma's own on-page colors */
-        --c1: #ce5623; /* clay */
-        --c2: #6391f6; /* blue */
-        --c3: #767cbf; /* violet */
-        --c4: #44caca; /* teal */
-        --c5: #c9e0ff; /* pale blue */
-        --c6: #fcfcfc; /* white */
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>No-Lag — High-Performance Script Hub &amp; Best Security</title>
+  <meta name="description" content="No-Lag - Monochrome High-Performance Roblox Script">
+  <link rel="icon" type="image/png" href="Asset/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        --font-display: "Space Grotesk", "Inter", sans-serif;
-        --font-body: "Inter", sans-serif;
-        --font-mono: "JetBrains Mono", monospace;
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth !important;
+    }
+
+    body {
+      background-color: #050608 !important;
+      color: #ededed;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      position: relative;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #050608;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    /* =========================================================
+       ANIMATIONS & KEYFRAMES
+       ========================================================= */
+    @keyframes auraBreathe {
+
+      0%,
+      100% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 0.7;
       }
 
-      * {
-        box-sizing: border-box;
+      50% {
+        transform: translate(-50%, -15px) scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes orbFloatRight {
+
+      0%,
+      100% {
+        transform: translate(0, 0);
+        opacity: 0.4;
       }
 
-      html {
-        scroll-behavior: smooth;
+      50% {
+        transform: translate(-40px, 30px);
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes gridPan {
+      0% {
+        background-position: 0 0;
       }
 
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--text);
-        font-family: var(--font-body);
-        -webkit-font-smoothing: antialiased;
-        line-height: 1.5;
-        overflow-x: hidden;
+      100% {
+        background-position: 44px 44px;
+      }
+    }
+
+    @keyframes radarWave {
+      0% {
+        transform: scale(0.9);
+        opacity: 0.9;
       }
 
-      a {
-        color: inherit;
+      100% {
+        transform: scale(2.4);
+        opacity: 0;
+      }
+    }
+
+    @keyframes textShine {
+      0% {
+        background-position: 0% 50%;
       }
 
-      img {
-        max-width: 100%;
+      50% {
+        background-position: 100% 50%;
       }
 
-      :focus-visible {
-        outline: 2px solid var(--text);
-        outline-offset: 3px;
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @keyframes borderGlowPulse {
+
+      0%,
+      100% {
+        border-color: rgba(255, 255, 255, 0.12);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 20px rgba(255, 255, 255, 0.03);
       }
 
-      main,
-      header,
-      footer {
-        position: relative;
-        z-index: 1;
+      50% {
+        border-color: rgba(255, 255, 255, 0.28);
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.75), 0 0 35px rgba(255, 255, 255, 0.08);
+      }
+    }
+
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(18px);
       }
 
-      .wrap {
-        max-width: 1160px;
-        margin: 0 auto;
-        padding: 0 32px;
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cursorBlink {
+
+      0%,
+      100% {
+        opacity: 1;
       }
 
-      /* ---------- Header ---------- */
+      50% {
+        opacity: 0;
+      }
+    }
 
-      .site-header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        max-width: 1160px;
-        margin: 0 auto;
-        padding: 22px 32px 0;
+    /* Staggered load animation */
+    .anim-fade-1 {
+      animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .anim-fade-2 {
+      animation: fadeSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+      opacity: 0;
+    }
+
+    .anim-fade-3 {
+      animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+      opacity: 0;
+    }
+
+    .anim-fade-4 {
+      animation: fadeSlideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+      opacity: 0;
+    }
+
+    .anim-fade-5 {
+      animation: fadeSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+      opacity: 0;
+    }
+
+    /* Canvas background */
+    #bg-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.65;
+    }
+
+    /* Ambient atmospheric layers */
+    .aura-top {
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 520px;
+      background: radial-gradient(ellipse 65% 50% at 50% 10%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02) 60%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+      animation: auraBreathe 7s ease-in-out infinite;
+    }
+
+    .aura-orb-right {
+      position: absolute;
+      top: 300px;
+      right: -100px;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+      animation: orbFloatRight 12s ease-in-out infinite;
+    }
+
+    .cyber-grid-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 70%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 70%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+      animation: gridPan 30s linear infinite;
+    }
+
+    /* Page container */
+    .page-wrap {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Floating navigation bar */
+    .nav-container {
+      position: sticky;
+      top: 14px;
+      width: 92%;
+      max-width: 1080px;
+      height: 54px;
+      margin: 14px auto 48px auto;
+      background: rgba(12, 13, 17, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px 0 18px;
+      z-index: 50;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .nav-container:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), 0 0 20px rgba(255, 255, 255, 0.03);
+    }
+
+    .nav-link {
+      color: #8e8e93;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-1px);
+    }
+
+    /* Buttons with dynamic shine and glow */
+    .btn-action-primary {
+      background: #ffffff;
+      color: #060709;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      padding: 8px 18px;
+      font-size: 12.5px;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.16);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-action-primary:hover {
+      background: #f4f4f5;
+      color: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-action-ghost {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #f4f4f5;
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-action-ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.24);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Radar Ping Indicator */
+    .radar-container {
+      position: relative;
+      width: 7px;
+      height: 7px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .radar-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ffffff;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.9);
+      position: relative;
+      z-index: 1;
+    }
+
+    .radar-ring {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, 0.8);
+      animation: radarWave 2s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+    }
+
+    /* Dynamic text shine */
+    .text-gradient-shimmer {
+      background: linear-gradient(90deg, #ffffff 0%, #a1a1aa 50%, #ffffff 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textShine 6s linear infinite;
+    }
+
+    /* Cards with 3D lift & dynamic glowing border */
+    .card-saas {
+      background: rgba(14, 15, 20, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 18px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .card-saas::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .card-saas:hover::before {
+      opacity: 1;
+    }
+
+    .card-saas:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(255, 255, 255, 0.04);
+    }
+
+    .card-popular {
+      background: rgba(18, 20, 26, 0.9) !important;
+      border: 1px solid rgba(255, 255, 255, 0.26) !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(255, 255, 255, 0.05);
+      animation: borderGlowPulse 4s ease-in-out infinite;
+      overflow: visible !important;
+    }
+
+    .icon-svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       Redesigned Developer Terminal / Loader Box
+       ========================================================================== */
+    .loader-terminal-wrapper {
+      max-width: 820px;
+      margin: 0 auto 34px auto;
+      position: relative;
+      scroll-margin-top: 90px;
+    }
+
+    .loader-ambient-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 95%;
+      height: 90%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 50%, transparent 70%);
+      filter: blur(36px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .loader-box {
+      position: relative;
+      z-index: 1;
+      background: rgba(11, 12, 16, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.75),
+        0 0 0 1px rgba(255, 255, 255, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      text-align: left;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      animation: borderGlowPulse 6s ease-in-out infinite;
+      opacity: 1 !important;
+    }
+
+    .loader-box:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 28px 70px -10px rgba(0, 0, 0, 0.85),
+        0 0 25px rgba(255, 255, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    }
+
+    /* Terminal Window Header */
+    .loader-header {
+      background: rgba(255, 255, 255, 0.025);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      user-select: none;
+    }
+
+    .loader-header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .window-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .window-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    .loader-box:hover .window-dot:nth-child(1) {
+      background: #ff5f56;
+      border-color: #e0443e;
+      box-shadow: 0 0 8px rgba(255, 95, 86, 0.4);
+    }
+
+    .loader-box:hover .window-dot:nth-child(2) {
+      background: #ffbd2e;
+      border-color: #dea123;
+      box-shadow: 0 0 8px rgba(255, 189, 46, 0.4);
+    }
+
+    .loader-box:hover .window-dot:nth-child(3) {
+      background: #27c93f;
+      border-color: #1aab29;
+      box-shadow: 0 0 8px rgba(39, 201, 63, 0.4);
+    }
+
+    .loader-header-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 11px;
+      border-radius: 7px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: #f4f4f5;
+      font-weight: 500;
+    }
+
+    .loader-header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .loader-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3px 9px;
+      border-radius: 6px;
+      letter-spacing: 0.2px;
+    }
+
+    /* Terminal Code Body */
+    .loader-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .loader-code-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      overflow-x: auto;
+      max-width: 100%;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+      padding: 2px 0;
+    }
+
+    .loader-line-number {
+      color: #52525b;
+      font-size: 12px;
+      font-weight: 600;
+      user-select: none;
+      flex-shrink: 0;
+      padding-right: 12px;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .code-tokens {
+      white-space: nowrap;
+      color: #e4e4e7;
+      letter-spacing: -0.2px;
+    }
+
+    .token-fn {
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .token-bracket {
+      color: #71717a;
+    }
+
+    .token-global {
+      color: #d4d4d8;
+      font-weight: 500;
+    }
+
+    .token-method {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .token-str {
+      color: #f4f4f5;
+      background: rgba(255, 255, 255, 0.07);
+      padding: 2px 7px;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .console-cursor {
+      display: inline-block;
+      width: 6px;
+      height: 13px;
+      background-color: #ffffff;
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: cursorBlink 1s infinite;
+    }
+
+    /* Interactive Copy Button */
+    .btn-copy-code {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #ffffff;
+      color: #060709;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: 9px;
+      padding: 9px 18px;
+      font-size: 12.5px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.14);
+    }
+
+    .btn-copy-code:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.28);
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .btn-copy-code:active {
+      transform: translateY(1px);
+    }
+
+    /* Terminal Footer Metadata Bar */
+    .loader-footer {
+      background: rgba(255, 255, 255, 0.015);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 9px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #71717a;
+      user-select: none;
+    }
+
+    .loader-footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .loader-footer-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #a1a1aa;
+    }
+
+    /* Grids */
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+      text-align: left;
+    }
+
+    .game-thumb-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .card-saas:hover .game-thumb-img {
+      transform: scale(1.06);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+
+    .pricing-card {
+      overflow: visible !important;
+    }
+
+    /* Toast */
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(20, 21, 26, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      padding: 11px 20px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(12px) scale(0.95);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* =========================================================
+       MOBILE & RESPONSIVE BREAKPOINTS
+       ========================================================= */
+    @media (max-width: 900px) {
+      .mobile-nav-hide {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-wrap {
+        padding: 0 14px;
       }
 
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-        font-family: var(--font-display);
-        font-weight: 600;
-        font-size: 16px;
-        letter-spacing: -0.01em;
-        min-width: 0;
+      .nav-container {
+        width: calc(100% - 20px);
+        height: 50px;
+        margin: 10px auto 35px auto;
+        padding: 0 10px 0 14px;
+        border-radius: 12px;
       }
 
-      .brand-mark {
-        width: 28px;
-        height: 28px;
-        flex-shrink: 0;
-        display: block;
-        object-fit: contain;
+      .nav-badge {
+        display: none !important;
       }
 
-      .header-link {
-        text-decoration: none;
-        font-size: 13.5px;
-        color: var(--text);
-        border: 1px solid var(--line);
-        padding: 9px 16px;
-        border-radius: 999px;
-        transition: border-color 0.15s ease, background 0.15s ease;
-        white-space: nowrap;
-        flex-shrink: 0;
+      .btn-nav-action {
+        padding: 6px 12px !important;
+        font-size: 11.5px !important;
+        border-radius: 8px !important;
       }
 
-      .header-link:hover {
-        border-color: rgba(255, 255, 255, 0.35);
-        background: var(--line-soft);
+      .hero-section {
+        padding: 0 4px !important;
+        margin-bottom: 40px !important;
       }
 
-      /* ---------- Buttons (Rechroma style: solid white / ghost outline) ---------- */
-
-      .btn-primary {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        text-decoration: none;
-        background: #ffffff;
-        color: #000000;
-        font-weight: 600;
-        font-size: 14.5px;
-        padding: 13px 22px;
-        border-radius: 999px;
-        border: 1px solid #ffffff;
-        transition: opacity 0.15s ease, transform 0.15s ease;
-      }
-
-      .btn-primary:hover {
-        opacity: 0.85;
-      }
-
-      .btn-primary:active {
-        transform: translateY(1px);
-      }
-
-      .btn-ghost {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        text-decoration: none;
-        background: transparent;
-        color: var(--text);
-        font-weight: 500;
-        font-size: 14px;
-        padding: 12px 20px;
-        border-radius: 999px;
-        border: 1px solid var(--line);
-        transition: border-color 0.15s ease, background 0.15s ease;
-      }
-
-      .btn-ghost:hover {
-        border-color: rgba(255, 255, 255, 0.35);
-        background: var(--line-soft);
-      }
-
-      /* ---------- Hero ---------- */
-
-      .hero {
-        padding: 64px 0 36px;
-        display: grid;
-        grid-template-columns: 1.05fr 0.95fr;
-        gap: 48px;
-        align-items: center;
-      }
-
-      .eyebrow {
-        font-family: var(--font-mono);
-        font-size: 11.5px;
-        text-transform: uppercase;
-        letter-spacing: 0.14em;
-        color: var(--text-faint);
-        margin: 0 0 16px;
-      }
-
-      .hero h1 {
-        font-family: var(--font-display);
-        font-size: clamp(36px, 6vw, 64px);
-        line-height: 0.98;
-        letter-spacing: -0.03em;
-        margin: 0 0 18px;
-      }
-
-      .hero h1 span {
-        color: var(--text-dim);
-      }
-
-      .hero-sub {
-        color: var(--text-dim);
-        font-size: 16px;
-        max-width: 46ch;
-        margin: 0 0 30px;
-      }
-
-      .script-snippet {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        background: var(--bg-raised);
-        border: 1px solid var(--line);
-        border-radius: 10px;
-        padding: 13px 13px 13px 15px;
-        margin-bottom: 20px;
-      }
-
-      .script-label {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--text-faint);
-        flex-shrink: 0;
-      }
-
-      #loader-code {
-        font-family: var(--font-mono);
-        font-size: 12.5px;
-        color: var(--text);
-        overflow-x: auto;
-        white-space: nowrap;
-        flex: 1;
-        min-width: 0;
-        scrollbar-width: none;
-      }
-
-      #loader-code::-webkit-scrollbar {
-        display: none;
-      }
-
-      .copy-button {
-        flex-shrink: 0;
-        font-family: var(--font-mono);
-        font-size: 12px;
-        background: var(--bg-raised-2);
-        color: var(--text);
-        border: 1px solid var(--line);
-        border-radius: 6px;
-        padding: 8px 12px;
-        cursor: pointer;
-        transition: background 0.15s ease, border-color 0.15s ease;
-      }
-
-      .copy-button:hover {
-        background: #1a1a1c;
-        border-color: rgba(255, 255, 255, 0.3);
+      .hero-status-pill {
+        font-size: 11px !important;
+        padding: 4px 12px !important;
+        margin-bottom: 16px !important;
+        max-width: 95%;
       }
 
       .hero-actions {
-        display: flex;
-        gap: 14px;
-        align-items: center;
-        flex-wrap: wrap;
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
+        margin-bottom: 35px !important;
       }
 
-      .hero-note {
-        font-size: 12.5px;
-        color: var(--text-faint);
-        font-family: var(--font-mono);
+      .hero-actions a {
+        width: 100% !important;
+        padding: 13px 18px !important;
+        font-size: 13px !important;
       }
 
-      /* ---------- Hero panel: frame chart ---------- */
-
-      .hero-panel {
-        background: var(--bg-raised);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 22px;
-        min-width: 0;
+      .loader-terminal-wrapper {
+        margin-bottom: 40px !important;
       }
 
-      .panel-head {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        margin-bottom: 4px;
-        gap: 10px;
+      .loader-box {
+        border-radius: 14px !important;
       }
 
-      .panel-title {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        color: var(--text-faint);
+      .loader-header {
+        padding: 8px 12px !important;
       }
 
-      .panel-live {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        font-family: var(--font-mono);
-        font-size: 11px;
-        color: var(--c4);
-        flex-shrink: 0;
+      .loader-status-badge {
+        font-size: 10px !important;
+        padding: 2px 7px !important;
       }
 
-      .panel-live::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--c4);
-        box-shadow: 0 0 0 0 rgba(68, 202, 202, 0.6);
-        animation: pulse 1.8s infinite;
+      .loader-body {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 14px 14px !important;
+        gap: 12px !important;
       }
 
-      @keyframes pulse {
-        0% {
-          box-shadow: 0 0 0 0 rgba(68, 202, 202, 0.5);
-        }
-        70% {
-          box-shadow: 0 0 0 7px rgba(68, 202, 202, 0);
-        }
-        100% {
-          box-shadow: 0 0 0 0 rgba(68, 202, 202, 0);
-        }
+      .loader-code-area {
+        width: 100% !important;
+        font-size: 11.5px !important;
+        padding-bottom: 4px !important;
       }
 
-      .logo-stage {
-        display: grid;
-        place-items: center;
-        padding: 18px 0 22px;
+      .btn-copy-code {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 10px 16px !important;
+        font-size: 12.5px !important;
       }
 
-      .logo-stage img {
-        width: 100%;
-        max-width: 210px;
-        height: auto;
-        display: block;
+      .loader-footer {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        padding: 9px 12px !important;
+        font-size: 10.5px !important;
       }
 
-      .frame-stats {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        margin-top: 18px;
+      .section-header {
+        margin-bottom: 24px !important;
       }
 
-      .stat-block {
-        border-top: 1px solid var(--line);
-        padding-top: 10px;
-        min-width: 0;
+      .section-title {
+        font-size: 24px !important;
+        letter-spacing: -0.8px !important;
       }
 
-      .stat-value {
-        font-family: var(--font-mono);
-        font-size: 19px;
-        font-weight: 500;
-        color: var(--text);
+      .section-subtitle {
+        font-size: 13px !important;
+        padding: 0 4px;
       }
 
-      .stat-value.accent {
-        color: var(--c4);
+      .games-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
       }
 
-      .stat-label {
-        font-size: 11px;
-        color: var(--text-faint);
-        margin-top: 3px;
+      .game-banner {
+        height: 135px !important;
       }
 
-      /* ---------- Section shared ---------- */
-
-      .section {
-        padding: 58px 0;
-        border-top: 1px solid var(--line-soft);
+      .pricing-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 400px !important;
+        margin: 0 auto !important;
+        gap: 16px !important;
       }
 
-      .section-heading {
-        margin-bottom: 36px;
-        max-width: 60ch;
+      .pricing-card {
+        padding: 22px 18px !important;
       }
 
-      .section-heading h2 {
-        font-family: var(--font-display);
-        font-size: clamp(24px, 3.2vw, 34px);
-        letter-spacing: -0.02em;
-        margin: 10px 0 0;
+      .pricing-price {
+        font-size: 28px !important;
       }
 
-      /* ---------- Feature grid ---------- */
-
-      .feature-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1px;
-        background: var(--line);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        overflow: hidden;
+      .discord-banner {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        text-align: center !important;
+        padding: 20px 16px !important;
+        gap: 16px !important;
       }
 
-      .feature-card {
-        background: var(--bg-raised);
-        padding: 24px 20px;
+      .discord-info-wrap {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 10px !important;
       }
 
-      .feature-index {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        margin-bottom: 30px;
-        display: block;
+      .discord-action-wrap {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 10px !important;
       }
 
-      .feature-card:nth-child(1) .feature-index {
-        color: var(--c1);
-      }
-      .feature-card:nth-child(2) .feature-index {
-        color: var(--c2);
-      }
-      .feature-card:nth-child(3) .feature-index {
-        color: var(--c4);
-      }
-      .feature-card:nth-child(4) .feature-index {
-        color: var(--c3);
+      .discord-online-badge {
+        justify-content: center !important;
+        width: 100% !important;
       }
 
-      .feature-card h3 {
-        font-family: var(--font-display);
-        font-size: 16.5px;
-        margin: 0 0 8px;
-        letter-spacing: -0.01em;
+      .btn-discord-join {
+        width: 100% !important;
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 12px !important;
       }
 
-      .feature-card p {
-        font-size: 13.5px;
-        color: var(--text-dim);
-        margin: 0;
-      }
-
-      /* ---------- Games list ---------- */
-
-      .games-list {
-        border-top: 1px solid var(--line-soft);
-      }
-
-      .game-row {
-        display: grid;
-        grid-template-columns: 40px 1fr auto auto;
-        align-items: center;
-        gap: 14px;
-        padding: 16px 4px;
-        border-bottom: 1px solid var(--line-soft);
-      }
-
-      .game-index {
-        font-family: var(--font-mono);
-        font-size: 12.5px;
-        color: var(--text-faint);
-      }
-
-      .game-name {
-        font-family: var(--font-display);
-        font-size: 16px;
-        letter-spacing: -0.01em;
-        min-width: 0;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .game-tag {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        color: var(--text-dim);
-        border: 1px solid var(--line);
-        padding: 4px 10px;
-        border-radius: 999px;
-        white-space: nowrap;
-      }
-
-      .game-status {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        justify-self: end;
-        flex-shrink: 0;
-      }
-
-      /* ---------- Info split ---------- */
-
-      .info-section {
-        display: grid;
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 44px;
-        align-items: center;
-        padding: 58px 0;
-        border-top: 1px solid var(--line-soft);
-      }
-
-      .info-copy h2 {
-        font-family: var(--font-display);
-        font-size: clamp(24px, 3.2vw, 32px);
-        letter-spacing: -0.02em;
-        margin: 10px 0 16px;
-      }
-
-      .info-copy p {
-        color: var(--text-dim);
-        font-size: 15px;
-        max-width: 52ch;
-        margin: 0 0 26px;
-      }
-
-      .console-card {
-        background: var(--bg-raised);
-        border: 1px solid var(--line);
-        border-radius: 14px;
-        padding: 20px;
-        font-family: var(--font-mono);
-        font-size: 12.5px;
-        color: var(--text-dim);
-        min-width: 0;
-        overflow-x: auto;
-      }
-
-      .console-card .line {
-        display: flex;
-        gap: 10px;
-        padding: 5px 0;
-        white-space: nowrap;
-      }
-
-      .console-card .ok {
-        color: var(--c4);
-      }
-
-      .console-card .dim {
-        color: var(--text-faint);
-      }
-
-      /* ---------- Footer ---------- */
-
-      footer {
-        border-top: 1px solid var(--line-soft);
-        padding: 30px 0 36px;
-      }
-
-      .footer-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 16px;
+      .footer-inner {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 14px !important;
+        font-size: 12px !important;
       }
 
       .footer-links {
-        display: flex;
-        gap: 20px;
-        font-size: 13px;
-        color: var(--text-dim);
+        justify-content: center !important;
+        gap: 16px !important;
       }
+    }
+  </style>
+</head>
 
-      .footer-links a {
-        text-decoration: none;
-      }
+<body>
+  <!-- Interactive Stardust / Constellation Canvas -->
+  <canvas id="bg-canvas"></canvas>
 
-      .footer-links a:hover {
-        color: var(--text);
-      }
+  <!-- Ambient glowing aura layers -->
+  <div class="aura-top"></div>
+  <div class="aura-orb-right"></div>
 
-      .footer-copy {
-        font-size: 12.5px;
-        color: var(--text-faint);
-        font-family: var(--font-mono);
-      }
+  <!-- Animated cyber grid -->
+  <div class="cyber-grid-bg"></div>
 
-      /* ---------- Responsive ---------- */
-
-      @media (max-width: 900px) {
-        .hero {
-          grid-template-columns: 1fr;
-          padding-top: 44px;
-          gap: 34px;
-        }
-
-        .hero-panel {
-          order: -1;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .wrap,
-        .site-header {
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-
-        .site-header {
-          padding-top: 18px;
-        }
-
-        .feature-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-
-        .info-section {
-          grid-template-columns: 1fr;
-          padding: 44px 0;
-          gap: 28px;
-        }
-
-        .section {
-          padding: 44px 0;
-        }
-
-        .game-row {
-          grid-template-columns: 26px 1fr auto;
-        }
-
-        .game-tag {
-          display: none;
-        }
-
-        .frame-stats {
-          gap: 8px;
-        }
-
-        .stat-value {
-          font-size: 17px;
-        }
-      }
-
-      @media (max-width: 560px) {
-        .wrap,
-        .site-header {
-          padding-left: 18px;
-          padding-right: 18px;
-        }
-
-        .brand span:last-child {
-          display: none;
-        }
-
-        .header-link {
-          padding: 8px 14px;
-          font-size: 13px;
-        }
-
-        .hero {
-          padding-top: 34px;
-        }
-
-        .hero-sub {
-          font-size: 15px;
-        }
-
-        .script-snippet {
-          flex-wrap: wrap;
-        }
-
-        #loader-code {
-          flex-basis: 100%;
-          order: 3;
-          font-size: 11.5px;
-        }
-
-        .hero-actions {
-          width: 100%;
-        }
-
-        .btn-primary {
-          width: 100%;
-        }
-
-        .hero-note {
-          width: 100%;
-        }
-
-        .feature-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .frame-stats {
-          grid-template-columns: 1fr 1fr;
-        }
-
-        .frame-stats .stat-block:last-child {
-          grid-column: span 2;
-        }
-
-        .info-copy .btn-ghost {
-          width: 100%;
-        }
-
-        .footer-row {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-        .panel-live::before {
-          animation: none;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="/">
-        <img class="brand-mark" src="NoLag-icon.png" alt="" width="28" height="28" />
-        <span>No-Lag</span>
+  <!-- Header / Navigation Bar -->
+  <header class="nav-container anim-fade-1">
+    <div style="display:flex;align-items:center;gap:9px">
+      <div
+        style="width:30px;height:30px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#000000;border:1px solid rgba(255, 255, 255, 0.18);flex-shrink:0;box-shadow:0 0 12px rgba(255, 255, 255, 0.1)">
+        <img src="Asset/logo.png" alt="No-Lag Logo" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <a href="#" style="text-decoration:none;display:flex;align-items:center;gap:6px">
+        <span style="font-size:15px;font-weight:800;color:#ffffff;letter-spacing:-0.3px">No-Lag</span>
       </a>
-      <a class="header-link" href="https://discord.gg/Ndzk9kPZmT">Discord ↗</a>
-    </header>
+    </div>
 
-    <main>
-      <div class="wrap">
-        <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-content">
-            <p class="eyebrow">Roblox script hub</p>
-            <h1 id="hero-title">Play without<br /><span>the stutter.</span></h1>
-            <p class="hero-sub">
-              No-Lag strips out the overhead between your input and the
-              game, so automation runs the same on frame one as it does
-              on frame ten thousand.
-            </p>
+    <nav class="mobile-nav-hide" style="display:flex;gap:4px">
+      <a href="#" class="nav-link" style="color:#ffffff">Home</a>
+      <a href="#loader" class="nav-link">Loader</a>
+      <a href="#games" class="nav-link">Games</a>
+      <a href="#pricing" class="nav-link">Key Pricing</a>
+      <a href="#discord" class="nav-link">Community</a>
+    </nav>
 
-            <div class="script-snippet" aria-label="Script loader">
-              <span class="script-label">Script</span>
-              <code id="loader-code">loadstring(game:HttpGet("https://nolag.wtf/script.lua"))()</code>
-              <button class="copy-button" type="button" data-copy-target="loader-code">
-                Copy
-              </button>
-            </div>
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="GetKey.html" class="btn-action-primary btn-nav-action">
+        <svg class="icon-svg" viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#060709">
+          <circle cx="7.5" cy="15.5" r="5.5"></circle>
+          <path d="m21 2-9.6 9.6"></path>
+          <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"></path>
+        </svg>Get Free Key
+      </a>
+    </div>
+  </header>
 
-            <div class="hero-actions">
-              <a class="btn-primary" href="https://discord.gg/Ndzk9kPZmT">
-                Join the Discord
-              </a>
-              <span class="hero-note">free · updated daily</span>
-            </div>
-          </div>
+  <!-- Main Content Wrapper -->
+  <main class="page-wrap">
+    <!-- Hero Section -->
+    <section class="hero-section" style="margin:0 auto 55px auto;text-align:center;position:relative;z-index:1">
+      <h1 class="hero-title anim-fade-1"
+        style="font-size:clamp(2.3rem, 6vw, 4rem);font-weight:800;letter-spacing:-1.8px;line-height:1.08;margin-bottom:26px;color:#ffffff">
+        Play Without The Stutter.<br>
+        <span class="text-gradient-shimmer">Built for High Performance.</span>
+      </h1>
 
-          <div class="hero-panel" aria-label="No-Lag logo">
-            <div class="panel-head">
-              <span class="panel-title">No-Lag</span>
-              <span class="panel-live">online</span>
-            </div>
-
-            <div class="logo-stage">
-              <img src="NoLag.png" alt="No-Lag logo, a pixel-dithered moth mark above the wordmark" />
-            </div>
-
-            <div class="frame-stats">
-              <div class="stat-block">
-                <div class="stat-value accent">0.4ms</div>
-                <div class="stat-label">avg overhead</div>
+      <!-- Monochrome Script Loader Box -->
+      <div class="loader-terminal-wrapper anim-fade-2">
+        <div class="loader-ambient-glow"></div>
+        <div id="loader" class="loader-box">
+          <div class="loader-header">
+            <div class="loader-header-left">
+              <div class="window-dots">
+                <span class="window-dot"></span>
+                <span class="window-dot"></span>
+                <span class="window-dot"></span>
               </div>
-              <div class="stat-block">
-                <div class="stat-value">2</div>
-                <div class="stat-label">games supported</div>
-              </div>
-              <div class="stat-block">
-                <div class="stat-value">0</div>
-                <div class="stat-label">dropped frames</div>
+              <div class="loader-header-tab">
+                <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+                <span>loader.lua</span>
               </div>
             </div>
-          </div>
-        </section>
-      </div>
-
-      <div class="wrap">
-        <section class="section" aria-labelledby="features-title">
-          <div class="section-heading">
-            <p class="eyebrow">Features</p>
-            <h2 id="features-title">Built for the loop, not the demo</h2>
-          </div>
-          <div class="feature-grid">
-            <article class="feature-card">
-              <span class="feature-index">01</span>
-              <h3>Automation tools</h3>
-              <p>
-                Cuts out repetitive actions so you can stay on strategy
-                instead of the grind.
-              </p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-index">02</span>
-              <h3>Performance-focused</h3>
-              <p>
-                A loader with near-zero overhead, so nothing sits between
-                you and the game.
-              </p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-index">03</span>
-              <h3>Multi-game support</h3>
-              <p>
-                One script hub, several supported Roblox experiences,
-                kept in sync.
-              </p>
-            </article>
-            <article class="feature-card">
-              <span class="feature-index">04</span>
-              <h3>Easy setup</h3>
-              <p>
-                Copy one line, join the Discord, get updates the moment
-                they ship.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" aria-labelledby="games-title">
-          <div class="section-heading">
-            <p class="eyebrow">Coverage</p>
-            <h2 id="games-title">Supported right now</h2>
-          </div>
-          <div class="games-list">
-            <div class="game-row">
-              <span class="game-index">01</span>
-              <span class="game-name">Grow A Garden 2</span>
-              <span class="game-tag">Keyless</span>
-              <span class="game-status" style="background:#00ff37" aria-label="online"></span>
-            </div>
-            <div class="game-row">
-              <span class="game-index">02</span>
-              <span class="game-name">Coming Soon</span>
-              <span class="game-tag">free</span>
-              <span class="game-status" style="background:#6391f6"></span>
+            <div class="loader-header-right">
+              <div class="loader-status-badge">
+                <span class="radar-container" style="width:6px;height:6px">
+                  <span class="radar-dot" style="width:5px;height:5px"></span>
+                  <span class="radar-ring"></span>
+                </span>
+                <span>Verified Luau</span>
+              </div>
             </div>
           </div>
-        </section>
-
-        <section class="info-section" aria-labelledby="info-title">
-          <div class="info-copy">
-            <p class="eyebrow">Information</p>
-            <h2 id="info-title">Automation that stays smooth</h2>
-            <p>
-              No-Lag is built to automate repetitive Roblox tasks and
-              improve gameplay efficiency across supported games, with a
-              lightweight approach that keeps things fast on desktop and
-              mobile web alike.
-            </p>
-            <a class="btn-ghost" href="https://discord.gg/Ndzk9kPZmT">
-              Get updates on Discord
-            </a>
+          <div class="loader-body">
+            <div class="loader-code-area" id="code-snippet-box">
+              <span class="loader-line-number">01</span>
+              <div class="code-tokens">
+                <span class="token-fn">loadstring</span><span class="token-bracket">(</span><span
+                  class="token-global">game</span><span class="token-bracket">:</span><span
+                  class="token-method">HttpGet</span><span class="token-bracket">(</span><span
+                  class="token-str">"https://nolag.wtf/script.lua"</span><span class="token-bracket">))()</span><span
+                  class="console-cursor"></span>
+              </div>
+            </div>
+            <button id="copy-btn" class="btn-copy-code" title="Copy loader script to clipboard">
+              <svg class="icon-svg" viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span id="copy-text">Copy Script</span>
+            </button>
           </div>
-          <div class="console-card" aria-hidden="true">
-            <div class="line"><span class="dim">$</span> loadstring(...)</div>
-            <div class="line"><span class="ok">✓</span> connected to No-Lag</div>
-            <div class="line"><span class="ok">✓</span> game detected: supported</div>
-            <div class="line"><span class="ok">✓</span> overhead: 0.4ms</div>
-            <div class="line"><span class="dim">ready.</span></div>
+          <div class="loader-footer">
+            <div class="loader-footer-left">
+              <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+              <span>Universal Compatibility: Mobile & PC</span>
+            </div>
+            <div class="loader-footer-right">
+              <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"></path>
+              </svg>
+              <span>Auto-Updating Cloud Edge</span>
+            </div>
           </div>
-        </section>
-      </div>
-    </main>
-
-    <footer>
-      <div class="wrap footer-row">
-        <a class="brand" href="/">
-          <img class="brand-mark" src="NoLag-icon.png" alt="" width="28" height="28" />
-          <span>No-Lag</span>
-        </a>
-        <div class="footer-links">
-          <a href="https://discord.gg/Ndzk9kPZmT">Discord</a>
         </div>
-        <span class="footer-copy">no-lag script hub</span>
       </div>
-    </footer>
 
-    <script>
-      const copyButton = document.querySelector("[data-copy-target]");
+      <div class="hero-actions anim-fade-3"
+        style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:58px">
+        <a href="GetKey.html" class="btn-action-primary" style="padding:12px 24px;font-size:13.5px;border-radius:12px">
+          <svg class="icon-svg" viewBox="0 0 24 24" style="stroke:#060709">
+            <circle cx="7.5" cy="15.5" r="5.5"></circle>
+            <path d="m21 2-9.6 9.6"></path>
+            <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"></path>
+          </svg>Get Free Key
+        </a>
+        <a href="https://discord.gg/Ndzk9kPZmT" target="_blank" rel="noopener noreferrer" class="btn-action-ghost">
+          <svg width="17" height="17" viewBox="0 0 127.14 96.36" fill="#ffffff">
+            <path
+              d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a77.7,77.7,0,0,0,6.63-10.85,68.43,68.43,0,0,1-10.5-5c.79-.58,1.57-1.19,2.31-1.82a74.37,74.37,0,0,0,73.44,0c.74.63,1.51,1.24,2.3,1.82a68.43,68.43,0,0,1-10.5,5,77.7,77.7,0,0,0,6.63,10.85,105.73,105.73,0,0,0,31-18.83C129.87,49.58,123.83,26.74,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.92,46,53.72,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.16,46,96,53,91,65.69,84.69,65.69Z">
+            </path>
+          </svg>Join Discord Community
+        </a>
+      </div>
 
-      copyButton?.addEventListener("click", async () => {
-        const targetId = copyButton.getAttribute("data-copy-target");
-        const target = document.getElementById(targetId);
-        const text = target?.textContent || "";
+      <!-- Supported Games & Experiences Section -->
+      <div id="games" style="margin-bottom:75px;scroll-margin-top:90px">
+        <div class="section-header" style="text-align:center;margin-bottom:34px">
+          <div style="font-size:11px;font-weight:700;color:#a1a1aa;letter-spacing:1.5px;text-transform:uppercase">
+            OFFICIAL SCRIPTS</div>
+          <h2 class="section-title"
+            style="font-size:30px;font-weight:800;letter-spacing:-1px;color:#fff;margin-top:4px">
+            Supported Games &amp; Experiences</h2>
+          <p class="section-subtitle" style="color:#71717a;font-size:13.5px;margin-top:4px">Configured and managed
+            dynamically through the high-performance No-Lag Script</p>
+        </div>
 
-        try {
-          await navigator.clipboard.writeText(text);
-          copyButton.textContent = "Copied";
-          setTimeout(() => {
-            copyButton.textContent = "Copy";
-          }, 1400);
-        } catch {
-          copyButton.textContent = "Failed";
-          setTimeout(() => {
-            copyButton.textContent = "Copy";
-          }, 1400);
-        }
+        <div class="games-grid">
+          <!-- Game 1: Steal An Egg -->
+          <div class="card-saas" style="padding:15px">
+            <div class="game-banner"
+              style="width:100%;height:145px;border-radius:12px;background:#101115;overflow:hidden;position:relative;margin-bottom:12px;border:1px solid rgba(255, 255, 255, 0.08)">
+              <img src="Asset/StealAnEgg.webp" alt="Steal An Egg" class="game-thumb-img" loading="lazy">
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3 style="font-size:15px;font-weight:700;color:#fff;margin:0">Steal An Egg</h3>
+              <span
+                style="font-size:10.5px;font-weight:700;color:#ffffff;background:rgba(255, 255, 255, 0.08);border:1px solid rgba(255, 255, 255, 0.16);padding:2px 7px;border-radius:6px">LIVE</span>
+            </div>
+          </div>
+
+          <!-- Game 2: Murder Mystery 2 -->
+          <div class="card-saas" style="padding:15px">
+            <div class="game-banner"
+              style="width:100%;height:145px;border-radius:12px;background:#101115;overflow:hidden;position:relative;margin-bottom:12px;border:1px solid rgba(255, 255, 255, 0.08)">
+              <img src="Asset/MurderMystery2.webp" alt="Murder Mystery 2" class="game-thumb-img" loading="lazy">
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3 style="font-size:15px;font-weight:700;color:#fff;margin:0">Murder Mystery 2</h3>
+              <span
+                style="font-size:10.5px;font-weight:700;color:#ffffff;background:rgba(255, 255, 255, 0.08);border:1px solid rgba(255, 255, 255, 0.16);padding:2px 7px;border-radius:6px">LIVE</span>
+            </div>
+          </div>
+
+          <!-- Game 3: +1 Speed Keyboard Escape -->
+          <div class="card-saas" style="padding:15px">
+            <div class="game-banner"
+              style="width:100%;height:145px;border-radius:12px;background:#101115;overflow:hidden;position:relative;margin-bottom:12px;border:1px solid rgba(255, 255, 255, 0.08)">
+              <img src="Asset/1SpeedKeyboard.webp" alt="+1 Speed Keyboard Escape" class="game-thumb-img" loading="lazy">
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3 style="font-size:15px;font-weight:700;color:#fff;margin:0">+1 Speed Keyboard Escape</h3>
+              <span
+                style="font-size:10.5px;font-weight:700;color:#ffffff;background:rgba(255, 255, 255, 0.08);border:1px solid rgba(255, 255, 255, 0.16);padding:2px 7px;border-radius:6px">LIVE</span>
+            </div>
+          </div>
+
+          <!-- Game 4: 99 Nights in the Forest -->
+          <div class="card-saas" style="padding:15px">
+            <div class="game-banner"
+              style="width:100%;height:145px;border-radius:12px;background:#101115;overflow:hidden;position:relative;margin-bottom:12px;border:1px solid rgba(255, 255, 255, 0.08)">
+              <img src="Asset/99Night.webp" alt="99 Nights in the Forest" class="game-thumb-img" loading="lazy">
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3 style="font-size:15px;font-weight:700;color:#fff;margin:0">99 Nights in the Forest</h3>
+              <span
+                style="font-size:10.5px;font-weight:700;color:#ffffff;background:rgba(255, 255, 255, 0.08);border:1px solid rgba(255, 255, 255, 0.16);padding:2px 7px;border-radius:6px">LIVE</span>
+            </div>
+          </div>
+
+          <!-- Game 5: Clean all the leaves -->
+          <div class="card-saas" style="padding:15px">
+            <div class="game-banner"
+              style="width:100%;height:145px;border-radius:12px;background:#101115;overflow:hidden;position:relative;margin-bottom:12px;border:1px solid rgba(255, 255, 255, 0.08)">
+              <img src="Asset/CleanAllLeaves.webp" alt="Clean all the leaves" class="game-thumb-img" loading="lazy">
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3 style="font-size:15px;font-weight:700;color:#fff;margin:0">Clean all the leaves</h3>
+              <span
+                style="font-size:10.5px;font-weight:700;color:#ffffff;background:rgba(255, 255, 255, 0.08);border:1px solid rgba(255, 255, 255, 0.16);padding:2px 7px;border-radius:6px">LIVE</span>
+            </div>
+          </div>
+
+          <!-- Game 6: Request a Script -->
+          <a href="https://discord.gg/Ndzk9kPZmT" target="_blank" rel="noopener noreferrer" class="card-saas"
+            style="padding:15px;opacity:0.85;text-decoration:none;display:block">
+            <div class="game-banner"
+              style="width:100%;height:145px;border-radius:12px;background:#101115;overflow:hidden;position:relative;margin-bottom:12px;border:1px dashed rgba(255, 255, 255, 0.12)">
+              <div
+                style="width:100%;height:100%;background:rgba(255, 255, 255, 0.015);display:flex;align-items:center;justify-content:center">
+                <svg viewBox="0 0 24 24"
+                  style="width:34px;height:34px;stroke:#71717a;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="8" x2="12" y2="16"></line>
+                  <line x1="8" y1="12" x2="16" y2="12"></line>
+                </svg>
+              </div>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h3 style="font-size:15px;font-weight:700;color:#a1a1aa;margin:0">Request a Script</h3>
+              <span
+                style="font-size:10.5px;font-weight:700;color:#71717a;background:rgba(255, 255, 255, 0.04);border:1px solid rgba(255, 255, 255, 0.08);padding:2px 7px;border-radius:6px">DISCORD</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- License Key Pricing Section -->
+      <div id="pricing" style="margin-bottom:75px;scroll-margin-top:90px">
+        <div class="section-header" style="text-align:center;margin:0 auto 34px auto">
+          <div style="font-size:11px;font-weight:700;color:#a1a1aa;letter-spacing:1.5px;text-transform:uppercase">
+            TIERED ACCESS • ALL SCRIPTS SUPPORTED</div>
+          <h2 class="section-title"
+            style="font-size:30px;font-weight:800;letter-spacing:-1px;color:#fff;margin-top:4px">
+            License Key Pricing</h2>
+          <p class="section-subtitle" style="color:#71717a;font-size:13.5px;margin-top:4px">Universal access across all
+            No-Lag game scripts, anti-detection, and auto-farming modules.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <!-- Tier 1: Premium Lifetime ($8) (Most Popular) -->
+          <div class="card-saas card-popular pricing-card"
+            style="padding:28px 22px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;position:relative;overflow:visible !important">
+            <div
+              style="position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#ffffff;color:#060709;font-size:10px;font-weight:800;padding:3px 12px;border-radius:9999px;letter-spacing:0.5px;z-index:10;box-shadow:0 2px 10px rgba(255,255,255,0.3);white-space:nowrap">
+              MOST POPULAR</div>
+            <div>
+              <div style="font-size:11.5px;font-weight:700;color:#ffffff;text-transform:uppercase;letter-spacing:0.5px">
+                Premium Lifetime</div>
+              <div class="pricing-price" style="font-size:30px;font-weight:800;color:#ffffff;margin:10px 0 2px 0">$8.00
+                <span style="font-size:13px;font-weight:500;color:#71717a">USD / Lifetime</span>
+              </div>
+              <div style="font-size:12px;color:#71717a;margin-bottom:20px">Permanent access to all scripts with zero
+                recurring subscription fees.</div>
+              <div
+                style="border-top:1px solid rgba(255,255,255,0.08);padding-top:16px;font-size:12.5px;color:#d4d4d8;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Full Access to All Supported Scripts
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Instant Automatic Key Delivery
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Lifetime Access (Never Expires)
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Unlimited Game Sessions
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <span style="color:#71717a;font-weight:800">✦</span> Trackstat Web Dashboard
+                  </div>
+                  <span
+                    style="font-size:9.5px;color:#a1a1aa;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;white-space:nowrap">Soon</span>
+                </div>
+              </div>
+            </div>
+            <a href="https://discord.gg/Ndzk9kPZmT" target="_blank" rel="noopener noreferrer"
+              style="margin-top:26px;width:100%;padding:12px;background:#ffffff;color:#060709;border-radius:12px;font-weight:700;font-size:13px;text-decoration:none;text-align:center;box-sizing:border-box;display:block;box-shadow:0 6px 20px rgba(255, 255, 255, 0.15);transition:all 0.2s">Purchase
+              Premium Key</a>
+          </div>
+
+          <!-- Tier 2: VIP Lifetime ($16) -->
+          <div class="card-saas pricing-card"
+            style="padding:28px 22px;display:flex;flex-direction:column;justify-content:space-between;text-align:left">
+            <div>
+              <div style="font-size:11.5px;font-weight:700;color:#8e8e93;text-transform:uppercase;letter-spacing:0.5px">
+                VIP Lifetime</div>
+              <div class="pricing-price" style="font-size:30px;font-weight:800;color:#ffffff;margin:10px 0 2px 0">$16.00
+                <span style="font-size:13px;font-weight:500;color:#71717a">USD / Lifetime</span>
+              </div>
+              <div style="font-size:12px;color:#71717a;margin-bottom:20px">The ultimate pack for power users with
+                exclusive early tester script access.</div>
+              <div
+                style="border-top:1px solid rgba(255,255,255,0.06);padding-top:16px;font-size:12.5px;color:#d4d4d8;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Full Access to All Supported Scripts
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Instant Automatic Key Delivery
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Lifetime Access (Never Expires)
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Unlimited Game Sessions
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Exclusive Early Access to Tester Scripts
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <span style="color:#71717a;font-weight:800">✦</span> Unlimited Trackstat Web Dashboard
+                  </div>
+                  <span
+                    style="font-size:9.5px;color:#a1a1aa;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;white-space:nowrap">Soon</span>
+                </div>
+              </div>
+            </div>
+            <a href="https://discord.gg/Ndzk9kPZmT" target="_blank" rel="noopener noreferrer"
+              style="margin-top:26px;width:100%;padding:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#fff;border-radius:12px;font-weight:700;font-size:13px;text-decoration:none;text-align:center;box-sizing:border-box;display:block;transition:all 0.2s">Purchase
+              VIP Key</a>
+          </div>
+
+          <!-- Tier 3: Farmer ($20 - 30 Days) (Best Deal) -->
+          <div class="card-saas pricing-card"
+            style="padding:28px 22px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;position:relative;overflow:visible !important;border-color:rgba(255, 255, 255, 0.22)">
+            <div
+              style="position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:#ffffff;color:#060709;font-size:10px;font-weight:800;padding:3px 12px;border-radius:9999px;letter-spacing:0.5px;z-index:10;box-shadow:0 2px 10px rgba(255,255,255,0.3);white-space:nowrap">
+              BEST DEAL</div>
+            <div>
+              <div style="font-size:11.5px;font-weight:700;color:#ffffff;text-transform:uppercase;letter-spacing:0.5px">
+                Farmer (30 Days)</div>
+              <div class="pricing-price" style="font-size:30px;font-weight:800;color:#ffffff;margin:10px 0 2px 0">$20.00
+                <span style="font-size:13px;font-weight:500;color:#71717a">USD / 30 Days</span>
+              </div>
+              <div style="font-size:12px;color:#71717a;margin-bottom:20px">Engineered for large-scale multi-account
+                farming with zero HWID limits.</div>
+              <div
+                style="border-top:1px solid rgba(255,255,255,0.06);padding-top:16px;font-size:12.5px;color:#d4d4d8;display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> <strong>Unlimited HWID</strong> (Multi-Account
+                  Farming)
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> 30-Day Active License Duration
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Full Access to All Supported Scripts
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Instant Automatic Key Delivery
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Unlimited Game Sessions
+                </div>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span style="color:#ffffff;font-weight:800">✓</span> Exclusive Early Access to Tester Scripts
+                </div>
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <span style="color:#71717a;font-weight:800">✦</span> Unlimited Trackstat Web Dashboard
+                  </div>
+                  <span
+                    style="font-size:9.5px;color:#a1a1aa;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);padding:1px 6px;border-radius:4px;white-space:nowrap">Soon</span>
+                </div>
+              </div>
+            </div>
+            <a href="https://discord.gg/Ndzk9kPZmT" target="_blank" rel="noopener noreferrer"
+              style="margin-top:26px;width:100%;padding:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);color:#fff;border-radius:12px;font-weight:700;font-size:13px;text-decoration:none;text-align:center;box-sizing:border-box;display:block;transition:all 0.2s">Purchase
+              Farmer Key</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Discord Community Card Banner -->
+      <div id="discord" class="card-saas discord-banner"
+        style="padding:24px 28px;margin-bottom:55px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;scroll-margin-top:90px;text-align:left">
+        <div class="discord-info-wrap" style="display:flex;align-items:center;gap:16px">
+          <div
+            style="background-color:rgba(255, 255, 255, 0.08);border:1px solid rgba(255, 255, 255, 0.12);width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="22" height="22" viewBox="0 0 127.14 96.36" fill="#ffffff">
+              <path
+                d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a77.7,77.7,0,0,0,6.63-10.85,68.43,68.43,0,0,1-10.5-5c.79-.58,1.57-1.19,2.31-1.82a74.37,74.37,0,0,0,73.44,0c.74.63,1.51,1.24,2.3,1.82a68.43,68.43,0,0,1-10.5,5,77.7,77.7,0,0,0,6.63,10.85,105.73,105.73,0,0,0,31-18.83C129.87,49.58,123.83,26.74,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.92,46,53.72,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.16,46,96,53,91,65.69,84.69,65.69Z">
+              </path>
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:11px;color:#a1a1aa;font-weight:700;text-transform:uppercase;letter-spacing:1px">
+              Official
+              Community</div>
+            <div style="font-size:17.5px;font-weight:700;color:#ffffff;margin:0">No-Lag Discord</div>
+          </div>
+        </div>
+        <div class="discord-action-wrap" style="display:flex;align-items:center;gap:14px">
+          <div class="discord-online-badge"
+            style="display:flex;align-items:center;gap:8px;font-size:12.5px;background:rgba(255, 255, 255, 0.05);padding:6px 14px;border-radius:8px;border:1px solid rgba(255, 255, 255, 0.1)">
+            <span
+              style="width:7px;height:7px;background-color:#ffffff;border-radius:50%;flex-shrink:0;box-shadow:0 0 8px #fff"></span>
+            <span style="color:#ffffff;font-weight:700">90K+</span>
+            <span style="color:#71717a">Member</span>
+          </div>
+          <a href="https://discord.gg/Ndzk9kPZmT" target="_blank" rel="noopener noreferrer"
+            class="btn-action-primary btn-discord-join" style="padding:10px 22px;border-radius:10px;font-size:13px">Join
+            Community</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer
+    style="border-top:1px solid rgba(255, 255, 255, 0.06);padding:30px 20px;color:#71717a;font-size:13px;position:relative;z-index:1">
+    <div class="footer-inner page-wrap"
+      style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div
+          style="width:24px;height:24px;border-radius:6px;overflow:hidden;background:#000000;border:1px solid rgba(255, 255, 255, 0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <img src="Asset/logo.png" alt="No-Lag Logo" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <span style="color:#a1a1aa;font-weight:600">No-Lag Script Hub</span>
+      </div>
+      <div class="footer-links" style="display:flex;gap:20px">
+        <a href="#" style="color:#71717a;text-decoration:none">Home</a>
+        <a href="#loader" style="color:#71717a;text-decoration:none">Loader</a>
+        <a href="#games" style="color:#71717a;text-decoration:none">Games</a>
+        <a href="https://discord.gg/Ndzk9kPZmT" target="_blank" rel="noopener noreferrer"
+          style="color:#ffffff;text-decoration:none">Discord</a>
+      </div>
+      <div>© 2026 No-Lag . All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="copy-toast" class="copy-toast">
+    <svg class="icon-svg" viewBox="0 0 24 24" style="stroke:#ffffff;width:15px;height:15px">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span>Loader code copied to clipboard!</span>
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Copy code logic
+    const copyBtn = document.getElementById("copy-btn");
+    const copyText = document.getElementById("copy-text");
+    const toast = document.getElementById("copy-toast");
+    const luaScript = 'loadstring(game:HttpGet("https://nolag.wtf/script.lua"))()';
+
+    copyBtn?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(luaScript);
+        copyText.textContent = "Copied!";
+        copyBtn.style.transform = "scale(0.96)";
+
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2200);
+
+        setTimeout(() => {
+          copyText.textContent = "Copy Script";
+          copyBtn.style.transform = "none";
+        }, 2000);
+      } catch (err) {
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = luaScript;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+
+        copyText.textContent = "Copied!";
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2200);
+
+        setTimeout(() => {
+          copyText.textContent = "Copy Script";
+        }, 2000);
+      }
+    });
+
+    // Also copy when clicking code snippet area
+    const snippetBox = document.getElementById("code-snippet-box");
+    snippetBox?.addEventListener("click", () => {
+      copyBtn?.click();
+    });
+    if (snippetBox) {
+      snippetBox.style.cursor = "pointer";
+    }
+
+    // Dynamic Card Spotlight Highlight on Mouse Movement
+    document.querySelectorAll(".card-saas").forEach(card => {
+      card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
       });
-    </script>
-  </body>
+    });
+
+    // High-performance Stardust / Constellation Background Animation
+    (function () {
+      const canvas = document.getElementById("bg-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      let width, height, particles = [];
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = Math.max(document.body.scrollHeight, window.innerHeight);
+      }
+
+      window.addEventListener("resize", resize);
+      resize();
+
+      const particleCount = Math.min(Math.floor(window.innerWidth / 20), 65);
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          radius: Math.random() * 1.5 + 0.6,
+          alpha: Math.random() * 0.5 + 0.2
+        });
+      }
+
+      let mouse = { x: null, y: null };
+      window.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY + window.scrollY;
+      });
+      window.addEventListener("mouseleave", () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+
+          // Draw particle
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+          ctx.fill();
+
+          // Connect nearby particles with subtle lines
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.12 * (1 - dist / 110)})`;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+
+          // Gentle mouse interaction
+          if (mouse.x !== null && mouse.y !== null) {
+            const mdx = p.x - mouse.x;
+            const mdy = p.y - mouse.y;
+            const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+            if (mdist < 140) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.18 * (1 - mdist / 140)})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+    })();
+  </script>
+</body>
+
 </html>
