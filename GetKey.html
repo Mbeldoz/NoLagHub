@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>No-Lag — Get Free 24h License Key</title>
+  <meta name="description"
+    content="Generate your free 24-hour No-Lag execution license key via LootLabs or Linkvertise checkpoints.">
+  <link rel="icon" type="image/png" href="Asset/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth !important;
+    }
+
+    body {
+      background-color: #050608 !important;
+      color: #ededed;
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+      position: relative;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #050608;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.28);
+    }
+
+    /* Animations */
+    @keyframes auraBreathe {
+
+      0%,
+      100% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 0.7;
+      }
+
+      50% {
+        transform: translate(-50%, -15px) scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes gridPan {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 44px 44px;
+      }
+    }
+
+    @keyframes borderGlowPulse {
+
+      0%,
+      100% {
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.03);
+      }
+
+      50% {
+        border-color: rgba(255, 255, 255, 0.24);
+        box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 255, 255, 0.07);
+      }
+    }
+
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes cursorBlink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .anim-fade-1 {
+      animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .anim-fade-2 {
+      animation: fadeSlideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
+      opacity: 0;
+    }
+
+    .anim-fade-3 {
+      animation: fadeSlideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+      opacity: 0;
+    }
+
+    /* Canvas background */
+    #bg-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.65;
+    }
+
+    .aura-top {
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 520px;
+      background: radial-gradient(ellipse 65% 50% at 50% 10%, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.02) 60%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+      animation: auraBreathe 7s ease-in-out infinite;
+    }
+
+    .cyber-grid-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 70%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 70%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
+      animation: gridPan 30s linear infinite;
+    }
+
+    /* Page container */
+    .page-wrap {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Floating navigation bar */
+    .nav-container {
+      position: sticky;
+      top: 14px;
+      width: 92%;
+      max-width: 1080px;
+      height: 54px;
+      margin: 14px auto 40px auto;
+      background: rgba(12, 13, 17, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 14px 0 18px;
+      z-index: 50;
+      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .nav-container:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.65), 0 0 20px rgba(255, 255, 255, 0.03);
+    }
+
+    .nav-link {
+      color: #8e8e93;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-1px);
+    }
+
+    /* Action buttons */
+    .btn-action-primary {
+      background: #ffffff;
+      color: #060709;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: 10px;
+      padding: 8px 18px;
+      font-size: 12.5px;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.16);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .btn-action-primary:hover {
+      background: #f4f4f5;
+      color: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-action-ghost {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #f4f4f5;
+      font-weight: 600;
+      font-size: 13.5px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-action-ghost:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.24);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    /* Cards with dynamic spotlight & hover */
+    .card-saas {
+      background: rgba(14, 15, 20, 0.75);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .card-saas::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.06), transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .card-saas:hover::before {
+      opacity: 1;
+    }
+
+    .card-saas:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.65), 0 0 25px rgba(255, 255, 255, 0.04);
+    }
+
+    .icon-svg {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      display: inline-block;
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       Redesigned Developer Terminal / Loader Box
+       ========================================================================== */
+    .loader-terminal-wrapper {
+      max-width: 820px;
+      margin: 0 auto 34px auto;
+      position: relative;
+      scroll-margin-top: 90px;
+    }
+
+    .loader-ambient-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 95%;
+      height: 90%;
+      background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.015) 50%, transparent 70%);
+      filter: blur(36px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .loader-box {
+      position: relative;
+      z-index: 1;
+      background: rgba(11, 12, 16, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.75), 
+                  0 0 0 1px rgba(255, 255, 255, 0.03), 
+                  inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      text-align: left;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      animation: borderGlowPulse 6s ease-in-out infinite;
+      opacity: 1 !important;
+    }
+
+    .loader-box:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+      box-shadow: 0 28px 70px -10px rgba(0, 0, 0, 0.85), 
+                  0 0 25px rgba(255, 255, 255, 0.05),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    }
+
+    /* Terminal Window Header */
+    .loader-header {
+      background: rgba(255, 255, 255, 0.025);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      user-select: none;
+    }
+
+    .loader-header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .window-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .window-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    .loader-box:hover .window-dot:nth-child(1) { background: #ff5f56; border-color: #e0443e; box-shadow: 0 0 8px rgba(255, 95, 86, 0.4); }
+    .loader-box:hover .window-dot:nth-child(2) { background: #ffbd2e; border-color: #dea123; box-shadow: 0 0 8px rgba(255, 189, 46, 0.4); }
+    .loader-box:hover .window-dot:nth-child(3) { background: #27c93f; border-color: #1aab29; box-shadow: 0 0 8px rgba(39, 201, 63, 0.4); }
+
+    .loader-header-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 4px 11px;
+      border-radius: 7px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: #f4f4f5;
+      font-weight: 500;
+    }
+
+    .loader-header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .loader-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 3px 9px;
+      border-radius: 6px;
+      letter-spacing: 0.2px;
+    }
+
+    /* Terminal Code Body */
+    .loader-body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 16px 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .loader-code-area {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      overflow-x: auto;
+      max-width: 100%;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+      padding: 2px 0;
+    }
+
+    .loader-line-number {
+      color: #52525b;
+      font-size: 12px;
+      font-weight: 600;
+      user-select: none;
+      flex-shrink: 0;
+      padding-right: 12px;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .code-tokens {
+      white-space: nowrap;
+      color: #e4e4e7;
+      letter-spacing: -0.2px;
+    }
+
+    .token-fn { color: #ffffff; font-weight: 700; }
+    .token-bracket { color: #71717a; }
+    .token-global { color: #d4d4d8; font-weight: 500; }
+    .token-method { color: #ffffff; font-weight: 600; }
+    .token-str { 
+      color: #f4f4f5; 
+      background: rgba(255, 255, 255, 0.07); 
+      padding: 2px 7px; 
+      border-radius: 5px; 
+      border: 1px solid rgba(255, 255, 255, 0.09); 
+    }
+
+    .console-cursor {
+      display: inline-block;
+      width: 6px;
+      height: 13px;
+      background-color: #ffffff;
+      margin-left: 4px;
+      vertical-align: middle;
+      animation: cursorBlink 1s infinite;
+    }
+
+    /* Interactive Copy Button */
+    .btn-copy-code {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #ffffff;
+      color: #060709;
+      border: 1px solid rgba(255, 255, 255, 0.95);
+      border-radius: 9px;
+      padding: 9px 18px;
+      font-size: 12.5px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 14px rgba(255, 255, 255, 0.14);
+    }
+
+    .btn-copy-code:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(255, 255, 255, 0.28);
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .btn-copy-code:active {
+      transform: translateY(1px);
+    }
+
+    /* Terminal Footer Metadata Bar */
+    .loader-footer {
+      background: rgba(255, 255, 255, 0.015);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 9px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #71717a;
+      user-select: none;
+    }
+
+    .loader-footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .loader-footer-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #a1a1aa;
+    }
+
+    /* 2 Gateway Cards Grid */
+    .gateway-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      width: 100%;
+      margin: 0 auto 36px auto;
+    }
+
+    /* Tutorial & Community Action Row */
+    .bottom-actions-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    /* Toast */
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: rgba(20, 21, 26, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: #ffffff;
+      padding: 11px 20px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 16px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(12px) scale(0.95);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Tutorial Modal */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-card {
+      background: #0d0e12;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 20px;
+      max-width: 500px;
+      width: 100%;
+      padding: 26px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.25s ease;
+    }
+
+    .modal-overlay.open .modal-card {
+      transform: scale(1);
+    }
+
+    .btn-close-modal {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: #a1a1aa;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-close-modal:hover {
+      background: rgba(255, 255, 255, 0.16);
+      color: #ffffff;
+    }
+
+    /* =========================================================
+       MOBILE RESPONSIVENESS
+       ========================================================= */
+    @media (max-width: 900px) {
+      .mobile-nav-hide {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-wrap {
+        padding: 0 14px;
+      }
+
+      .nav-container {
+        width: calc(100% - 20px);
+        height: 50px;
+        margin: 10px auto 26px auto;
+        padding: 0 10px 0 14px;
+        border-radius: 12px;
+      }
+
+      .nav-badge {
+        display: none !important;
+      }
+
+      .btn-nav-action {
+        padding: 6px 12px !important;
+        font-size: 11.5px !important;
+        border-radius: 8px !important;
+      }
+
+      .loader-terminal-wrapper {
+        margin-bottom: 30px !important;
+      }
+
+      .loader-box {
+        border-radius: 14px !important;
+      }
+
+      .loader-header {
+        padding: 8px 12px !important;
+      }
+
+      .loader-status-badge {
+        font-size: 10px !important;
+        padding: 2px 7px !important;
+      }
+
+      .loader-body {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 14px 14px !important;
+        gap: 12px !important;
+      }
+
+      .loader-code-area {
+        width: 100% !important;
+        font-size: 11.5px !important;
+        padding-bottom: 4px !important;
+      }
+
+      .btn-copy-code {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 10px 16px !important;
+        font-size: 12.5px !important;
+      }
+
+      .loader-footer {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+        padding: 9px 12px !important;
+        font-size: 10.5px !important;
+      }
+
+      .gateway-grid {
+        grid-template-columns: 1fr !important;
+        gap: 14px !important;
+        margin-bottom: 28px !important;
+      }
+
+      .gateway-card {
+        padding: 22px 18px !important;
+      }
+
+      .bottom-actions-row {
+        flex-direction: column !important;
+        width: 100% !important;
+        gap: 12px !important;
+      }
+
+      .bottom-actions-row a,
+      .bottom-actions-row button {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 13px 18px !important;
+      }
+
+      .footer-inner {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 14px !important;
+        font-size: 12px !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Interactive Stardust / Constellation Canvas -->
+  <canvas id="bg-canvas"></canvas>
+
+  <!-- Ambient glowing aura layers -->
+  <div class="aura-top"></div>
+
+  <!-- Animated cyber grid -->
+  <div class="cyber-grid-bg"></div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="nav-container anim-fade-1">
+    <div style="display:flex;align-items:center;gap:9px">
+      <div
+        style="width:30px;height:30px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#000000;border:1px solid rgba(255, 255, 255, 0.18);flex-shrink:0;box-shadow:0 0 12px rgba(255, 255, 255, 0.1)">
+        <img src="Asset/logo.png" alt="No-Lag Logo" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+      <a href="index.html" style="text-decoration:none;display:flex;align-items:center;gap:6px">
+        <span style="font-size:15px;font-weight:800;color:#ffffff;letter-spacing:-0.3px">No-Lag</span>
+        <span class="nav-badge"
+          style="font-size:9.5px;font-weight:700;background:rgba(255, 255, 255, 0.06);color:#a1a1aa;border:1px solid rgba(255, 255, 255, 0.1);padding:1px 6px;border-radius:9999px">v2.0</span>
+      </a>
+    </div>
+
+    <nav class="mobile-nav-hide" style="display:flex;gap:4px">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="#loader" class="nav-link">Loader</a>
+      <a href="#gateways" class="nav-link" style="color:#ffffff">Get Key</a>
+      <a href="index.html#games" class="nav-link">Games</a>
+      <a href="https://discord.gg/Ndzk9kPZmT" target="_blank" rel="noopener noreferrer" class="nav-link">Discord</a>
+    </nav>
+
+    <div style="display:flex;align-items:center;gap:8px">
+      <a href="index.html" class="btn-action-primary btn-nav-action">
+        <svg class="icon-svg" viewBox="0 0 24 24" style="width:14px;height:14px;stroke:#060709">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>Back to Hub
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="page-wrap">
+    <!-- Script Loader Box -->
+    <div class="loader-terminal-wrapper anim-fade-2">
+      <div class="loader-ambient-glow"></div>
+      <div id="loader" class="loader-box">
+        <div class="loader-header">
+          <div class="loader-header-left">
+            <div class="window-dots">
+              <span class="window-dot"></span>
+              <span class="window-dot"></span>
+              <span class="window-dot"></span>
+            </div>
+            <div class="loader-header-tab">
+              <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+              <span>loader.lua</span>
+            </div>
+          </div>
+          <div class="loader-header-right">
+            <div class="loader-status-badge">
+              <span class="radar-container" style="width:6px;height:6px">
+                <span class="radar-dot" style="width:5px;height:5px"></span>
+                <span class="radar-ring"></span>
+              </span>
+              <span>Verified Luau</span>
+            </div>
+          </div>
+        </div>
+        <div class="loader-body">
+          <div class="loader-code-area" id="code-snippet-box">
+            <span class="loader-line-number">01</span>
+            <div class="code-tokens">
+              <span class="token-fn">loadstring</span><span class="token-bracket">(</span><span class="token-global">game</span><span class="token-bracket">:</span><span class="token-method">HttpGet</span><span class="token-bracket">(</span><span class="token-str">"https://nolag.wtf/script.lua"</span><span class="token-bracket">))()</span><span class="console-cursor"></span>
+            </div>
+          </div>
+          <button id="copy-btn" class="btn-copy-code" title="Copy loader script to clipboard">
+            <svg class="icon-svg" viewBox="0 0 24 24" style="width:14px;height:14px;stroke:currentColor">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span id="copy-text">Copy Script</span>
+          </button>
+        </div>
+        <div class="loader-footer">
+          <div class="loader-footer-left">
+            <svg viewBox="0 0 24 24" width="13" height="13" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            <span>Universal Compatibility: Wave, Synapse Z, Solara, Delta, Codex</span>
+          </div>
+          <div class="loader-footer-right">
+            <svg viewBox="0 0 24 24" width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.19"></path>
+            </svg>
+            <span>Auto-Updating Cloud Edge</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 Simple Checkpoint Cards (LootLabs & Linkvertise) -->
+    <section id="gateways" class="anim-fade-3" style="scroll-margin-top:90px">
+      <div class="gateway-grid">
+        <!-- Card 1: LootLabs -->
+        <div class="card-saas gateway-card"
+          style="padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;position:relative">
+          <div
+            style="position:absolute;top:16px;right:18px;background:rgba(255, 255, 255, 0.08);border:1px solid rgba(255, 255, 255, 0.16);color:#ffffff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:9999px">
+            24H KEY</div>
+          <div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+              <div
+                style="width:38px;height:38px;border-radius:10px;background:rgba(255, 255, 255, 0.08);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255, 255, 255, 0.12)">
+                <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#ffffff;stroke-width:2;fill:none">
+                  <path
+                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                  </path>
+                  <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                  <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                </svg>
+              </div>
+              <h3 style="font-size:20px;font-weight:800;color:#ffffff;letter-spacing:-0.3px">LootLabs</h3>
+            </div>
+            <div style="font-size:14px;color:#a1a1aa;font-weight:500;margin-bottom:20px">
+              Get Free 24h Key
+            </div>
+          </div>
+
+          <a href="https://luaprot.net/ad/60f59d5e" target="_blank" rel="noopener noreferrer" class="btn-action-primary"
+            style="width:100%;padding:12px;font-size:13px;border-radius:12px">
+            <svg class="icon-svg" viewBox="0 0 24 24" style="stroke:#060709">
+              <circle cx="7.5" cy="15.5" r="5.5"></circle>
+              <path d="m21 2-9.6 9.6"></path>
+              <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"></path>
+            </svg>Get Key (LootLabs)
+          </a>
+        </div>
+
+        <!-- Card 2: Linkvertise -->
+        <div class="card-saas gateway-card"
+          style="padding:28px 24px;display:flex;flex-direction:column;justify-content:space-between;text-align:left;position:relative">
+          <div
+            style="position:absolute;top:16px;right:18px;background:rgba(255, 255, 255, 0.08);border:1px solid rgba(255, 255, 255, 0.16);color:#ffffff;font-size:10px;font-weight:700;padding:3px 9px;border-radius:9999px">
+            24H KEY</div>
+          <div>
+            <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
+              <div
+                style="width:38px;height:38px;border-radius:10px;background:rgba(255, 255, 255, 0.08);display:flex;align-items:center;justify-content:center;border:1px solid rgba(255, 255, 255, 0.12)">
+                <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#ffffff;stroke-width:2;fill:none">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+              </div>
+              <h3 style="font-size:20px;font-weight:800;color:#ffffff;letter-spacing:-0.3px">Linkvertise</h3>
+            </div>
+            <div style="font-size:14px;color:#a1a1aa;font-weight:500;margin-bottom:20px">
+              Get Free 24h Key
+            </div>
+          </div>
+
+          <a href="https://luaprot.net/ad/76b93678" target="_blank" rel="noopener noreferrer" class="btn-action-primary"
+            style="width:100%;padding:12px;font-size:13px;border-radius:12px">
+            <svg class="icon-svg" viewBox="0 0 24 24" style="stroke:#060709">
+              <circle cx="7.5" cy="15.5" r="5.5"></circle>
+              <path d="m21 2-9.6 9.6"></path>
+              <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"></path>
+            </svg>Get Key (Linkvertise)
+          </a>
+        </div>
+      </div>
+
+      <!-- Action Row: Tutorial & Join Discord -->
+      <div class="bottom-actions-row">
+        <button id="open-tutorial-btn" class="btn-action-ghost" style="padding:12px 24px;font-size:13px">
+          <svg class="icon-svg" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"></polygon>
+          </svg>Tutorial: How to Get Key
+        </button>
+
+        <a href="https://discord.gg/Ndzk9kPZmT" target="_blank" rel="noopener noreferrer" class="btn-action-primary"
+          style="padding:12px 24px;font-size:13px;border-radius:12px">
+          <svg width="16" height="16" viewBox="0 0 127.14 96.36" fill="#060709">
+            <path
+              d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a77.7,77.7,0,0,0,6.63-10.85,68.43,68.43,0,0,1-10.5-5c.79-.58,1.57-1.19,2.31-1.82a74.37,74.37,0,0,0,73.44,0c.74.63,1.51,1.24,2.3,1.82a68.43,68.43,0,0,1-10.5,5,77.7,77.7,0,0,0,6.63,10.85,105.73,105.73,0,0,0,31-18.83C129.87,49.58,123.83,26.74,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.92,46,53.72,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.16,46,96,53,91,65.69,84.69,65.69Z">
+            </path>
+          </svg>Join Discord Community
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Tutorial Modal Dialog -->
+  <div id="tutorial-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button id="close-modal-btn" class="btn-close-modal" aria-label="Close">
+        <svg viewBox="0 0 24 24" style="width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+        <div
+          style="width:32px;height:32px;border-radius:8px;background:rgba(255, 255, 255, 0.08);display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 24 24" style="width:18px;height:18px;stroke:#ffffff;stroke-width:2;fill:none">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </div>
+        <h3 style="font-size:18px;font-weight:700;color:#fff">How to Get Free 24h Key</h3>
+      </div>
+      <p style="font-size:13.5px;color:#a1a1aa;line-height:1.6;margin-bottom:20px">
+        Follow these simple steps to obtain your 24-hour key:
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;text-align:left">
+        <div
+          style="display:flex;gap:12px;background:rgba(255, 255, 255, 0.03);padding:12px 14px;border-radius:10px;border:1px solid rgba(255, 255, 255, 0.06)">
+          <span style="font-family:'JetBrains Mono', monospace;color:#ffffff;font-weight:700;font-size:13px">1.</span>
+          <span style="font-size:13px;color:#d4d4d8">Click either <strong>LootLabs</strong> or
+            <strong>Linkvertise</strong> above.</span>
+        </div>
+        <div
+          style="display:flex;gap:12px;background:rgba(255, 255, 255, 0.03);padding:12px 14px;border-radius:10px;border:1px solid rgba(255, 255, 255, 0.06)">
+          <span style="font-family:'JetBrains Mono', monospace;color:#ffffff;font-weight:700;font-size:13px">2.</span>
+          <span style="font-size:13px;color:#d4d4d8">Complete the brief sponsor task on the destination page.</span>
+        </div>
+        <div
+          style="display:flex;gap:12px;background:rgba(255, 255, 255, 0.03);padding:12px 14px;border-radius:10px;border:1px solid rgba(255, 255, 255, 0.06)">
+          <span style="font-family:'JetBrains Mono', monospace;color:#ffffff;font-weight:700;font-size:13px">3.</span>
+          <span style="font-size:13px;color:#d4d4d8">Copy your generated 24-hour key.</span>
+        </div>
+        <div
+          style="display:flex;gap:12px;background:rgba(255, 255, 255, 0.03);padding:12px 14px;border-radius:10px;border:1px solid rgba(255, 255, 255, 0.06)">
+          <span style="font-family:'JetBrains Mono', monospace;color:#ffffff;font-weight:700;font-size:13px">4.</span>
+          <span style="font-size:13px;color:#d4d4d8">Paste the key into the in-game script prompt.</span>
+        </div>
+      </div>
+
+      <button id="got-it-btn" class="btn-action-primary"
+        style="width:100%;padding:11px;font-size:13px;border-radius:10px">
+        Got It! Close Guide
+      </button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer
+    style="border-top:1px solid rgba(255, 255, 255, 0.06);padding:30px 20px;color:#71717a;font-size:13px;position:relative;z-index:1">
+    <div class="footer-inner page-wrap"
+      style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div
+          style="width:24px;height:24px;border-radius:6px;overflow:hidden;background:#000000;border:1px solid rgba(255, 255, 255, 0.15);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <img src="Asset/logo.png" alt="No-Lag Logo" style="width:100%;height:100%;object-fit:cover;display:block">
+        </div>
+        <span style="color:#a1a1aa;font-weight:600">No-Lag Script Hub</span>
+      </div>
+      <div class="footer-links" style="display:flex;gap:20px">
+        <a href="index.html" style="color:#71717a;text-decoration:none">Home</a>
+        <a href="#loader" style="color:#71717a;text-decoration:none">Loader</a>
+        <a href="#gateways" style="color:#71717a;text-decoration:none">Get Key</a>
+        <a href="https://discord.gg/Ndzk9kPZmT" target="_blank" rel="noopener noreferrer"
+          style="color:#ffffff;text-decoration:none">Discord</a>
+      </div>
+      <div>© 2026 No-Lag. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification -->
+  <div id="copy-toast" class="copy-toast">
+    <svg class="icon-svg" viewBox="0 0 24 24" style="stroke:#ffffff;width:15px;height:15px">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+    <span>Loader code copied to clipboard!</span>
+  </div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Copy code logic
+    const copyBtn = document.getElementById("copy-btn");
+    const copyText = document.getElementById("copy-text");
+    const toast = document.getElementById("copy-toast");
+    const luaScript = 'loadstring(game:HttpGet("https://nolag.wtf/script.lua"))()';
+
+    copyBtn?.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(luaScript);
+        copyText.textContent = "Copied!";
+        copyBtn.style.transform = "scale(0.96)";
+
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2200);
+
+        setTimeout(() => {
+          copyText.textContent = "Copy Script";
+          copyBtn.style.transform = "none";
+        }, 2000);
+      } catch (err) {
+        const tempTextArea = document.createElement("textarea");
+        tempTextArea.value = luaScript;
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempTextArea);
+
+        copyText.textContent = "Copied!";
+        toast.classList.add("show");
+        setTimeout(() => {
+          toast.classList.remove("show");
+        }, 2200);
+
+        setTimeout(() => {
+          copyText.textContent = "Copy Script";
+        }, 2000);
+      }
+    });
+
+    // Also copy when clicking code snippet area
+    const snippetBox = document.getElementById("code-snippet-box");
+    snippetBox?.addEventListener("click", () => {
+      copyBtn?.click();
+    });
+    if (snippetBox) {
+      snippetBox.style.cursor = "pointer";
+    }
+
+    // Tutorial Modal Logic
+    const openTutorialBtn = document.getElementById("open-tutorial-btn");
+    const closeModalBtn = document.getElementById("close-modal-btn");
+    const gotItBtn = document.getElementById("got-it-btn");
+    const tutorialModal = document.getElementById("tutorial-modal");
+
+    function openModal() {
+      tutorialModal?.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      tutorialModal?.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+
+    openTutorialBtn?.addEventListener("click", openModal);
+    closeModalBtn?.addEventListener("click", closeModal);
+    gotItBtn?.addEventListener("click", closeModal);
+
+    tutorialModal?.addEventListener("click", (e) => {
+      if (e.target === tutorialModal) {
+        closeModal();
+      }
+    });
+
+    // Dynamic Card Spotlight Highlight on Mouse Movement
+    document.querySelectorAll(".card-saas").forEach(card => {
+      card.addEventListener("mousemove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      });
+    });
+
+    // High-performance Stardust / Constellation Background Animation
+    (function () {
+      const canvas = document.getElementById("bg-canvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      let width, height, particles = [];
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = Math.max(document.body.scrollHeight, window.innerHeight);
+      }
+
+      window.addEventListener("resize", resize);
+      resize();
+
+      const particleCount = Math.min(Math.floor(window.innerWidth / 20), 55);
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.35,
+          vy: (Math.random() - 0.5) * 0.35,
+          radius: Math.random() * 1.5 + 0.6,
+          alpha: Math.random() * 0.5 + 0.2
+        });
+      }
+
+      let mouse = { x: null, y: null };
+      window.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY + window.scrollY;
+      });
+      window.addEventListener("mouseleave", () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0) p.x = width;
+          if (p.x > width) p.x = 0;
+          if (p.y < 0) p.y = height;
+          if (p.y > height) p.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha})`;
+          ctx.fill();
+
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const dx = p.x - p2.x;
+            const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < 110) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.12 * (1 - dist / 110)})`;
+              ctx.lineWidth = 0.6;
+              ctx.stroke();
+            }
+          }
+
+          if (mouse.x !== null && mouse.y !== null) {
+            const mdx = p.x - mouse.x;
+            const mdy = p.y - mouse.y;
+            const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
+            if (mdist < 140) {
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(mouse.x, mouse.y);
+              ctx.strokeStyle = `rgba(255, 255, 255, ${0.18 * (1 - mdist / 140)})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+    })();
+  </script>
+</body>
+
+</html>
